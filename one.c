@@ -6,7 +6,7 @@
 void *counter(void *args){
   unsigned long int local_counter = 0;
 
-  for (size_t i = 1; i < fin; i++) {
+  for (size_t i = 1; i <= fin; i++) {
     local_counter = local_counter + (i * i);
   }
 

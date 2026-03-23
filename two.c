@@ -8,8 +8,8 @@
 void *thread_detached_identifier(void *arg) {
   int *argument = (int*) arg;
 
-  sleep(1);
   for(int i = 0; i < 5; i++) {
+    sleep(1);
     printf("Thread: My ID is [%d] my iteration number is [%d].\n", *argument, i);
   }
   printf("Thread: I'm finished my work and my id is %d.\n", *argument);

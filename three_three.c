@@ -11,11 +11,15 @@ unsigned long int counter = 0;
 
 void *incrementor(void* args) {
 
+  unsigned long int local_counter = 0;
+
   for(int i = 0; i < INCREMENTS; i++) {
-    pthread_mutex_lock(&my_mutex);
-    counter++;
-    pthread_mutex_unlock(&my_mutex);
+    local_counter++;
   }
+
+  pthread_mutex_lock(&my_mutex);
+  counter += local_counter;
+  pthread_mutex_unlock(&my_mutex);
 
   return NULL;
 }

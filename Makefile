@@ -1,6 +1,6 @@
 .PHONY = all clean
 
-all: one two three
+all: one two three_one three_two three_three
 
 one: one.c
 	gcc one.c -o one -pthread

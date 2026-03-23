@@ -13,6 +13,8 @@ void *thread_detached_identifier(void *arg) {
     printf("Thread: My ID is [%d] my iteration number is [%d].\n", *argument, i);
   }
   printf("Thread: I'm finished my work and my id is %d.\n", *argument);
+
+  return NULL;
 }
 
 

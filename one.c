@@ -8,13 +8,9 @@ void *counter(void *args){
 
   for (size_t i = 1; i <= fin; i++) {
     local_counter = local_counter + (i * i);
-  }
+  } 
 
-  unsigned long int *answer = malloc(sizeof(unsigned long int)); 
-
-  *answer = local_counter;
-  
-  return (void*) answer;
+  return (void*) local_counter;
 }
 
 int main(int argv, char* argc[]) {
@@ -31,10 +27,9 @@ int main(int argv, char* argc[]) {
 
   pthread_join(thread, &retval);
 
-  unsigned long int *casted_retval = (unsigned long int *) retval; 
+  unsigned long int casted_retval = (unsigned long int) retval; 
 
-  printf("Main: Value counted in thread is: %ld. Value calculated in main is %ld.\n", *casted_retval, expected);
+  printf("Main: Value counted in thread is: %ld. Value calculated in main is %ld.\n", casted_retval, expected);
 
-  free(retval);
   return EXIT_SUCCESS;
 }
